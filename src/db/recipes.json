@@ -1,0 +1,84 @@
+{
+	"recipes": [
+		{
+			"name": "Pasta Carbonara",
+			"difficulty": "Easy",
+			"prep_time_minutes": 30,
+			"image_url": "spaghetti_carbonara.jpeg",
+			"instructions": "Sofríe cebolla y ajo picados. Añade panceta en cubos y cocina hasta dorar. Incorpora huevos batidos, queso parmesano y pecorino romano. Sazona con pimienta y mezcla con pasta cocida. ¡Disfruta de una deliciosa Carbonara clásica!",
+			"categories": ["Italiana", "Tradicional", "Fácil"]
+		},
+		{
+			"name": "Arroz Chaufa",
+			"difficulty": "Easy",
+			"prep_time_minutes": 25,
+			"image_url": "arroz_chaufa.jpeg",
+			"instructions": "Cocina arroz y reserva. Saltea cebolla, ajo y jengibre picados. Agrega huevo batido y revuelve hasta cuajar. Incorpora arroz, salsa de soja, aceite de sésamo, guisantes y verduras al gusto. Cocina hasta calentar y mezclar bien. ¡Saborea un sabroso Arroz Chaufa lleno de sabor oriental!",
+			"categories": ["Oriental", "Fácil", "Barata"]
+		},
+		{
+			"name": "Chili con Carne",
+			"difficulty": "Medium",
+			"prep_time_minutes": 60,
+			"image_url": "chili_con_carne.jpeg",
+			"instructions": "Sofríe cebolla, ajo y pimiento verde picados. Añade carne molida y cocina hasta dorar. Incorpora frijoles rojos, tomates, caldo de carne, chile en polvo, comino y especias al gusto. Cocina a fuego lento hasta que espese y los sabores se integren. ¡Prepárate para un Chili con Carne que llenará tu estómago y calentará tu alma!",
+			"categories": ["Barata", "Carne"]
+		},
+		{
+			"name": "Hummus",
+			"difficulty": "Easy",
+			"prep_time_minutes": 30,
+			"image_url": "hummus.jpeg",
+			"instructions": "Licúa garbanzos cocidos, tahini, jugo de limón, ajo, aceite de oliva y comino. Sazona con sal y pimienta. Sirve con pan pita, verduras frescas o como dip. ¡Deleitate con un Hummus cremoso y lleno de sabor, perfecto para compartir!",
+			"categories": ["Vegetariana/Vegana", "Barata", "Picoteo"]
+		},
+		{
+			"name": "Ensalada Griega",
+			"difficulty": "Easy",
+			"prep_time_minutes": 20,
+			"image_url": "ensalada_griega.jpeg",
+			"instructions": "Mezcla lechuga romana, tomates cherry, pepino, cebolla roja y queso feta en cubos. Aliñe con aceite de oliva, jugo de limón, orégano y sal. Sirva con aceitunas negras. ¡Disfruta de una Ensalada Griega fresca y ligera, ideal para un día caluroso!",
+			"categories": ["Barata", "Vegetariana/Vegana", "Picoteo"]
+		},
+		{
+			"name": "Tortilla de Patatas",
+			"difficulty": "Easy",
+			"prep_time_minutes": 30,
+			"image_url": "tortilla_de_patatas.jpeg",
+			"instructions": "Pela y corta patatas en rodajas finas. Calienta aceite de oliva en una sartén. Frie las patatas hasta que estén doradas y tiernas. Bate huevos con sal. Añade las patatas fritas a los huevos batidos. Vierte la mezcla en la sartén y cocina a fuego lento hasta que la tortilla cuaje. ¡Disfruta de una deliciosa Tortilla de Patatas, un clásico de la cocina española!",
+			"categories": ["Tradicional", "Fácil", "Barata"]
+		},
+		{
+			"name": "Pad Thai",
+			"difficulty": "Medium",
+			"prep_time_minutes": 45,
+			"image_url": "pad_thai.jpeg",
+			"instructions": "Remoja fideos de arroz en agua tibia. Cocina gambas o pollo en una sartén con aceite. Añade fideos escurridos, salsa de pescado, salsa de soja, azúcar de palma, tamarindo, ajo picado y chiles secos al gusto. Saltea hasta que los fideos estén bien impregnados con la salsa. Sirve con cacahuetes picados, brotes de soja y lima para aderezar. ¡Saborea un Pad Thai lleno de sabor y aromas orientales!",
+			"categories": ["Oriental", "Carne"]
+		},
+		{
+			"name": "Fajitas de Pollo",
+			"difficulty": "Medium",
+			"prep_time_minutes": 45,
+			"image_url": "fajitas_de_pollo.jpeg",
+			"instructions": "Corta pechugas de pollo en tiras finas. Marina el pollo con jugo de lima, ajo, comino, pimentón y sal. Saltea el pollo marinado en una sartén con aceite hasta que esté dorado y cocido. Calienta tortillas de maíz. Sirve las fajitas con el pollo, cebollas y pimientos salteados, guacamole, salsa fresca y crema agria. ¡Disfruta de unas Fajitas de Pollo llenas de sabor y color, perfectas para compartir!",
+			"categories": ["Mexicana", "Carne"]
+		},
+		{
+			"name": "Pizza Margherita",
+			"difficulty": "Medium",
+			"prep_time_minutes": 45,
+			"image_url": "pizza_margherita.jpeg",
+			"instructions": "Prepara una masa de pizza casera o compra una ya hecha. Unta la masa con salsa de tomate. Añade mozzarella fresca en rodajas. Hornea la pizza en un horno precalentado a alta temperatura hasta que la masa esté dorada y el queso fundido. Antes de servir, decora con hojas de albahaca fresca. ¡Deleitate con una Pizza Margherita auténtica, un clásico de la cocina italiana!",
+			"categories": ["Italiana", "Tradicional"]
+		},
+		{
+			"name": "Mousse de Chocolate",
+			"difficulty": "Hard",
+			"prep_time_minutes": 30,
+			"image_url": "mousse_de_chocolate.jpeg",
+			"instructions": "Derrite chocolate oscuro al baño maría o en el microondas. Separa las yemas de las claras de los huevos. Bate las yemas con azúcar hasta que estén espumosas. Añade el chocolate derretido a las yemas y mezcla bien. Monta las claras de huevo a punto de nieve. Incorpora las claras montadas a la mezcla de chocolate con movimientos envolventes. Refrigera la mousse durante al menos 2 horas antes de servir. ¡Disfruta de una Mousse de Chocolate cremosa y deliciosa, un postre perfecto para cualquier ocasión!",
+			"categories": ["Postres"]
+		}
+	]
+}
