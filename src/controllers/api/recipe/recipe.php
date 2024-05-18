@@ -11,7 +11,8 @@ use Controllers\Utils\UriParams;
 /**
  * Controller for API recipe operations
  */
-class Controller {
+class Controller
+{
     use UriParams;
 
     /**
@@ -19,7 +20,8 @@ class Controller {
      * @param int $pagination_limit The number of recipes to return per page
      * @return void
      */
-    public static function getPaginatedRecipes($pagination_limit) {
+    public static function getPaginatedRecipes($pagination_limit)
+    {
         $page = Controller::getNumericId();
 
         if ($page === null) {
@@ -40,10 +42,10 @@ class Controller {
 
         // Retrieve the corresponding paginated results and return them as JSON
         $current_page_count = 0;
-        
+
         foreach ($results['generator'] as $recipes) {
             ++$current_page_count;
-            
+
             if ($current_page_count !== $page)
                 continue;
 
@@ -51,7 +53,7 @@ class Controller {
                 'totalRecipeCount' => $total_recipe_count,
                 'totalPageCount' => $total_expected_page_count,
                 'currentPageIndex' => $page,
-                'recipes' => array_map(function($recipe) {
+                'recipes' => array_map(function ($recipe) {
                     return $recipe->serialize();
                 }, $recipes)
             ];
@@ -65,7 +67,8 @@ class Controller {
      * Get a specific recipe and output it as JSON
      * @return void
      */
-    public static function getRecipeById() {
+    public static function getRecipeById()
+    {
         $id = Controller::getNumericId();
 
         if ($id === null || $id < 1) {

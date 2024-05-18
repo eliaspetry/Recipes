@@ -7,7 +7,8 @@ require_once __DIR__ . '/model.php';
 /**
  * Category DB columns/fields trait
  */
-trait CategoryFields {
+trait CategoryFields
+{
     public string $name;
     public ?int $id;
 }
@@ -15,7 +16,8 @@ trait CategoryFields {
 /**
  * Category model
  */
-class Category extends Model {
+class Category extends Model
+{
     use CategoryFields;
 
     /**
@@ -24,7 +26,8 @@ class Category extends Model {
      * @param ?int $id The id of the category
      * @return void
      */
-    public function __construct($name, $id = null) {
+    public function __construct($name, $id = null)
+    {
         $this->id = $id;
         $this->name = $name;
     }

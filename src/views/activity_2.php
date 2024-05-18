@@ -1,5 +1,5 @@
 <p style="font-family: Arial, Helvetica, sans-serif;">
-<?php
+    <?php
     require_once __DIR__ . '/../controllers/recipe/recipe.php';
 
     use Controllers\Recipe\Controller as RecipeController;
@@ -14,5 +14,5 @@
     echo '<strong>Image:</strong> ' . $recipe->image_url . '<br>';
     echo '<strong>Categories:</strong> ' . $recipe->getParsedCategories() . '<br>';
     echo '<strong>Instructions:</strong> ' . $recipe->instructions . '<br>';
-?>
+    ?>
 </p>

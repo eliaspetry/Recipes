@@ -9,7 +9,8 @@ use DB;
 /**
  * Common pagination queries
  */
-class QueryHolder {
+class QueryHolder
+{
     /**
      * Base function for a paginated query
      * @param int $pagination_limit The number of rows to return per page
@@ -17,10 +18,12 @@ class QueryHolder {
      * @param array ...$params The query parameters to bind into the base query
      * @return [int, Generator<\Models\Recipe[]>] The total count of results and the paginated results
      */
-    public static function getPaginated($pagination_limit, $query, ...$params) {
+    public static function getPaginated($pagination_limit, $query, ...$params)
+    {
         $results = DB::query($query, ...$params);
 
-        function generator($results, $pagination_limit) {
+        function generator($results, $pagination_limit)
+        {
             $buffer = [];
 
             // If there are no results, yield and empty array and return immediately
@@ -46,7 +49,7 @@ class QueryHolder {
         }
 
         return [
-            'count' => !$results ? 0 : count($results), 
+            'count' => !$results ? 0 : count($results),
             'generator' => generator($results, $pagination_limit)
         ];
     }

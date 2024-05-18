@@ -15,13 +15,15 @@ use Services\MySql\Queries\Category\QueryHolder as CategoryQueryHolder;
 /**
  * Recipe queries
  */
-class QueryHolder {
+class QueryHolder
+{
     /**
      * Gets the most recently added recipes
      * @param int $limit The number of recipes to return
      * @return Models\Recipe[] The retrieved recipes
      */
-    public static function getNewest($limit) {
+    public static function getNewest($limit)
+    {
         $results = DB::query('SELECT * FROM recipes ORDER BY datetime DESC LIMIT %d', $limit);
         $recipes = [];
 
@@ -50,13 +52,15 @@ class QueryHolder {
      * @param array ...$params The query parameters 
      * @return [int, Generator<Models\Recipe[]>] The count and generator for the paginated recipes
      */
-    public static function getAllPaginated($pagination_limit, $filtering_params) {
+    public static function getAllPaginated($pagination_limit, $filtering_params)
+    {
         $query_components = QueryHolder::buildFilteredQuery($filtering_params);
         $results = PaginationQueryHolder::getPaginated($pagination_limit, $query_components['query'], ...$query_components['params']);
 
-        function generator($results) {
+        function generator($results)
+        {
             foreach ($results['generator'] as $raw_results_page) {
-                yield array_map(function($row) {
+                yield array_map(function ($row) {
                     $recipe = new Recipe(
                         $row['name'],
                         $row['difficulty'],
@@ -67,7 +71,7 @@ class QueryHolder {
                         $row['id'],
                         $row['datetime']
                     );
-    
+
                     return $recipe;
                 }, $raw_results_page);
             }
@@ -84,13 +88,14 @@ class QueryHolder {
      * @param int $id The id of the recipe
      * @return Models\Recipe The retrieved recipe
      */
-    public static function getById($id) {
+    public static function getById($id)
+    {
         $result = DB::query('SELECT * FROM recipes WHERE id = %d', $id);
 
         if (count($result) === 0) return null;
 
         $result = $result[0];
-        
+
         return new Recipe(
             $result['name'],
             $result['difficulty'],
@@ -108,7 +113,8 @@ class QueryHolder {
      * @param Models\Recipe $recipe The recipe to insert
      * @return void
      */
-    public static function insert($recipe) {
+    public static function insert($recipe)
+    {
         unset($recipe->id);
         unset($recipe->datetime);
         $categories = $recipe->categories;
@@ -122,7 +128,7 @@ class QueryHolder {
             CategoryQueryHolder::insertIgnore($category);
 
             $category_id = DB::query('SELECT id FROM categories WHERE name = %s', $category->name)[0]['id'];
-            
+
             // Create a relation row in the junction table
             DB::insert('recipes_categories', [
                 'recipe_id' => $recipe_id,
@@ -135,7 +141,8 @@ class QueryHolder {
      * Gets the total number of recipes in the database
      * @return int The total number of recipes
      */
-    public static function getTotalRecipeCount() {
+    public static function getTotalRecipeCount()
+    {
         return DB::query('SELECT COUNT(*) FROM recipes')[0]['COUNT(*)'];
     }
 
@@ -144,7 +151,8 @@ class QueryHolder {
      * @param array $filtering_params The filtering parameters
      * @return array An associative array containing both the query and parameters
      */
-    protected static function buildFilteredQuery($filtering_params) {
+    protected static function buildFilteredQuery($filtering_params)
+    {
         // Validate category if specified
         if ($filtering_params['category'] && !CategoryQueryHolder::isCategoryIdValid($filtering_params['category'])) {
             $filtering_params['category'] = null;
@@ -172,7 +180,7 @@ class QueryHolder {
                 $query .= ' AND ';
             }
 
-            switch($key) {
+            switch ($key) {
                 case 'category':
                     $query .= 'c.category_id = %d';
                     break;
@@ -182,7 +190,7 @@ class QueryHolder {
         }
 
         $query .= ' ORDER BY %b %l';
-        array_push ($params, $filtering_params['order_by'][0], $filtering_params['order_by'][1]); // These will hold safe values since they are switched to predefined values in the parsing
+        array_push($params, $filtering_params['order_by'][0], $filtering_params['order_by'][1]); // These will hold safe values since they are switched to predefined values in the parsing
 
         return [
             'query' => $query,

@@ -4,11 +4,11 @@
 		<h1 class="text-6xl font-bold text-teal-500">Recetas</h1>
 	</div>
 	<?php
-		session_start();
+	session_start();
 
-		if (isset($_SESSION['user_data'])) {
-			echo '<p class="text-md text-gray-600 text-center mb-10">¡Bienvenido/a, <strong>' . $_SESSION['user_data']['username'] . '!</strong></p>';
-		}
+	if (isset($_SESSION['user_data'])) {
+		echo '<p class="text-md text-gray-600 text-center mb-10">¡Bienvenido/a, <strong>' . $_SESSION['user_data']['username'] . '!</strong></p>';
+	}
 	?>
 	<nav>
 		<ul class="flex flex-col items-center justify-center gap-5 md:flex-row">

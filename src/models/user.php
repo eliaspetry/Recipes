@@ -7,7 +7,8 @@ require_once __DIR__ . '/model.php';
 /**
  * User DB columns/fields trait
  */
-trait UserFields {
+trait UserFields
+{
     public string $username;
     public string $password;
     public string $password_hash;
@@ -18,7 +19,8 @@ trait UserFields {
 /**
  * Recipe model
  */
-class User extends Model {
+class User extends Model
+{
     use UserFields;
 
     /**
@@ -29,7 +31,8 @@ class User extends Model {
      * @param ?string $surname The surname of the user
      * @return void
      */
-    public function __construct($username, $password, $name = null, $surname = null) {
+    public function __construct($username, $password, $name = null, $surname = null)
+    {
         $this->username = $username;
         $this->name = $name;
         $this->surname = $surname;
@@ -41,7 +44,8 @@ class User extends Model {
      * Encrypts the password into a separate property on the model, using the Blowfish algorithm
      * @return void
      */
-    public function encryptPassword() {
+    public function encryptPassword()
+    {
         $this->password_hash = password_hash($this->password, PASSWORD_BCRYPT);
     }
 }

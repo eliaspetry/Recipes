@@ -1,7 +1,6 @@
 <?php
-    require_once __DIR__ . '/../../controllers/user/user.php';
+require_once __DIR__ . '/../../controllers/user/user.php';
 
-    use \Controllers\User\Controller as UserController;
+use \Controllers\User\Controller as UserController;
 
-    UserController::registerNewUser();
-?>
+UserController::registerNewUser();

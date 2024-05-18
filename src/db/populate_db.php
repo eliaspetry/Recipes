@@ -16,9 +16,9 @@ use Services\MySql\Queries\User\QueryHolder as UserQueryHolder;
 
 $json = json_decode(file_get_contents('recipes.json', true));
 
-$recipes = array_map(function($recipe) {
+$recipes = array_map(function ($recipe) {
     $parsedRecipe = new Recipe($recipe->name, $recipe->difficulty, $recipe->prep_time_minutes, $recipe->image_url, $recipe->instructions);
-    $parsedRecipe->addCategories(array_map(function($category_name) {
+    $parsedRecipe->addCategories(array_map(function ($category_name) {
         return new Category($category_name);
     }, $recipe->categories));
     return $parsedRecipe;

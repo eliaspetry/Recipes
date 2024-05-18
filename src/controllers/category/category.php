@@ -9,12 +9,14 @@ use Services\MySql\Queries\Category\QueryHolder as CategoryQueryHolder;
 /**
  * Controller for category operations
  */
-class Controller {
+class Controller
+{
     /**
      * Get all categories
      * @return \Models\Category[] Array of categories
      */
-    public static function getCategories() {
+    public static function getCategories()
+    {
         return CategoryQueryHolder::getCategories();
     }
 
@@ -23,7 +25,8 @@ class Controller {
      * @param int $id The category id to check
      * @return bool True if the provided category id is valid, else false
      */
-    public static function isCategoryIdValid($id) {
+    public static function isCategoryIdValid($id)
+    {
         return CategoryQueryHolder::isCategoryIdValid($id);
     }
 }

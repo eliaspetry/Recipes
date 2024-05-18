@@ -5,12 +5,14 @@ namespace Controllers\Utils;
 /**
  * Trait for URI route and GET parameter handling
  */
-trait UriParams {
+trait UriParams
+{
     /**
      * Get the numeric ID from the tail of the URI
      * @return int|null The numeric ID if found, else null
      */
-    protected static function getNumericId() {
+    protected static function getNumericId()
+    {
         // Explode the URI
         $uri_sections = explode('/', $_SERVER['REQUEST_URI']);
         $last = array_pop($uri_sections);
@@ -26,7 +28,8 @@ trait UriParams {
      * Parses the GET parameters for filtering and ordering recipes / sets defaults if any of them are missing or invalid
      * @return array An associative array of the given recipe filtering and ordering parameters
      */
-    protected static function getRecipeFilteringParams() {
+    protected static function getRecipeFilteringParams()
+    {
         $filtering_params = [
             'order_by' => ['name', 'ASC'],
             'difficulty' => null,

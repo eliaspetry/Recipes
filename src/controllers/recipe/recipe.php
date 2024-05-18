@@ -11,7 +11,8 @@ use Services\MySql\Queries\Recipe\QueryHolder as RecipeQueryHolder;
 /**
  * Controller for recipe operations
  */
-class Controller {
+class Controller
+{
     use UriParams;
 
     static $state = [
@@ -27,7 +28,8 @@ class Controller {
      * @param int $limit The number of recipes to return
      * @return \Models\Recipe[] The latest recipes
      */
-    public static function getLatestRecipes($limit) {
+    public static function getLatestRecipes($limit)
+    {
         return RecipeQueryHolder::getNewest($limit);
     }
 
@@ -36,7 +38,8 @@ class Controller {
      * @param int $pagination_limit The number of recipes per page
      * @return \Models\Recipe[] The paginated recipes
      */
-    public static function getPaginatedRecipes($pagination_limit) {
+    public static function getPaginatedRecipes($pagination_limit)
+    {
         $results = RecipeQueryHolder::getAllPaginated($pagination_limit, Controller::getRecipeFilteringParams());
 
         // Get the total number of recipes to verify that the index is valid
@@ -64,13 +67,13 @@ class Controller {
 
         // Retrieve the corresponding paginated results and return them
         $current_page_count = 0;
-        
+
         foreach ($results['generator'] as $recipes) {
             ++$current_page_count;
-            
+
             if ($current_page_count !== $page)
                 continue;
-            
+
             return $recipes;
         }
     }
@@ -80,7 +83,8 @@ class Controller {
      * @param int $id The id of the recipe
      * @return \Models\Recipe The recipe found for that provided id
      */
-    public static function getRecipeById() {
+    public static function getRecipeById()
+    {
         $id = Controller::getNumericId();
 
         if ($id === null || $id < 1) {

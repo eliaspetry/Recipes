@@ -11,12 +11,14 @@ use Models\Category;
 /**
  * Category queries
  */
-class QueryHolder {
+class QueryHolder
+{
     /**
      * Creates a new category
      * @param \Models\Category $category The category to insert
      */
-    public static function insertIgnore($category) {
+    public static function insertIgnore($category)
+    {
         DB::insertIgnore('categories', [
             'name' => $category->name
         ]);
@@ -27,7 +29,8 @@ class QueryHolder {
      * @param int $recipe_id The id of the recipe
      * @return \Models\Category[] An array of categories for the given recipe
      */
-    public static function getCategoriesForRecipe($recipe_id) {
+    public static function getCategoriesForRecipe($recipe_id)
+    {
         $results = DB::query('SELECT categories.* FROM categories, recipes_categories WHERE recipes_categories.category_id = categories.id AND recipes_categories.recipe_id = %i', $recipe_id);
         $categories = [];
 
@@ -42,7 +45,8 @@ class QueryHolder {
      * Gets all categories
      * @return \Models\Category[] An array of all categories
      */
-    public static function getCategories() {
+    public static function getCategories()
+    {
         $results = DB::query('SELECT * FROM categories');
         $categories = [];
 
@@ -58,7 +62,8 @@ class QueryHolder {
      * @param int $id The id to check
      * @return bool Whether the id is valid or not
      */
-    public static function isCategoryIdValid($id) {
+    public static function isCategoryIdValid($id)
+    {
         $result = DB::queryFirstRow('SELECT * FROM categories WHERE id = %i', $id);
 
         return $result != null;
